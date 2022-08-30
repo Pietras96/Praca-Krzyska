@@ -27,17 +27,17 @@ namespace Praca_Krzyska
                 X.Add(new Complex(Convert.ToDouble(dane[l]), 0));
                 
             }
-            rms2 = rms();
-            rms2 *= rms2;
+            //rms2 = rms();
+            //rms2 *= rms2;
         }
-        double rms()
-        {
-            double sum = X[0].Real * X[0].Real;
-            for (int i = 0; i < n; i++)
-            {
-                sum += X[i].Real * X[i].Real;
-            }
-            return Math.Sqrt((1.0 / n) * sum);
-        }
+        //double rms()
+        //{
+        //    double sum = X[0].Real * X[0].Real;
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        sum += X[i].Real * X[i].Real;
+        //    }
+        //    return Math.Sqrt((1.0 / n) * sum);
+        //}
     }
 }

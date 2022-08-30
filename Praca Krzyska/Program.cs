@@ -9,13 +9,12 @@ namespace Praca_Krzyska
     {
         static void Main(string[] args)
         {
-            string file = @"C:\Users\Piotrek\Desktop\proba1.txt";
+            string file = @"C:\Users\Piotrek\Desktop\proba1024.txt";
 
             var fft = new fft(file);
 
 
             Console.WriteLine("elo");
-
 
 
 
