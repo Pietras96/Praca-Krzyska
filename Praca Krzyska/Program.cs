@@ -11,69 +11,12 @@ namespace Praca_Krzyska
         {
             string file = @"C:\Users\Piotrek\Desktop\proba1.txt";
 
-            string[] dane = File.ReadAllLines(file);
-            int n = dane.Length;
-            List<Complex> X = new List<Complex>();
-            for (int l = 0; l < n; l++)
-            {
-                X.Add(new Complex(Convert.ToDouble(dane[l]),0));
-            }
-
-            Complex[] tmp = new Complex[n];
-            Complex W;
-            Complex U;
-            int i;
-            int j = 0;
-            int k = 0;
-            int id = 0;
-            int L = 0;
-            int LE = 0;
-            int LE1 = 0;
-            int N2 = n / 2;
-            int M = (int)Math.Log2(n);
+            var fft = new fft(file);
 
 
-            for (i = 1; i < n - 1; i++)
-            {
-                k = N2;
-                while (k <= j)
-                {
-                    j = j - k;
-                    k = k / 2;
-                }
-                j = j + k;
-                if (i < j)
-                {
-                    tmp[i] = new Complex(X[j].Real, X[j].Imaginary);
-                    X[j] = new Complex(X[i].Real, X[i].Imaginary);
-                    X[i] = new Complex(tmp[i].Real, tmp[i].Imaginary);
-                }
-
-            }
-            for (L = 1; L <= M; L++)
-            {
-                LE = (int)Math.Pow(2, L);
-                LE1 = LE / 2;
-                U = new Complex(1.0, .0);
-                W = new Complex(Math.Cos(Math.PI / LE1), (-1.0) * Math.Sin(Math.PI / LE1));
-                for (j = 0; j < LE1; j++)
-                {
-                    for (i = j; i < n; i += LE)
-                    {
-                        id = i + LE1;
-                        tmp[i] = new Complex(X[id].Real * U.Real - (X[id].Imaginary * U.Imaginary), X[id].Imaginary * U.Real + X[id].Real * U.Imaginary);
-                        X[id] = new Complex(X[i].Real - tmp[i].Real, X[i].Imaginary - tmp[i].Imaginary);
-                        X[i] = new Complex(X[i].Real + tmp[i].Real, X[i].Imaginary + tmp[i].Imaginary);
-                    }
-                    // zapytac Przemka
+            Console.WriteLine("elo");
 
 
-                }
-            }
-
-
-
-            Console.WriteLine("ELo");
 
 
             //int j=0, k=0, N = 1024;
