@@ -24,8 +24,8 @@ namespace Praca_Krzyska
         int LE = 0;
         int LE1 = 0;
         int N2;
-        
-        public void liczfft()
+
+        public List<Complex> liczfft()
         {
             tmp = new Complex();
             N2 = n / 2;
@@ -62,24 +62,13 @@ namespace Praca_Krzyska
                         X[id] = new Complex(X[i].Real - tmp.Real, X[i].Imaginary - tmp.Imaginary);
                         X[i] = new Complex(X[i].Real + tmp.Real, X[i].Imaginary + tmp.Imaginary);
                     }
-                    // zapytac Przemka
                     tmp = new Complex(U.Real * W.Real - U.Imaginary * W.Imaginary, X[id].Imaginary * U.Real + X[id].Real * U.Imaginary);
                     U = new Complex(tmp.Real, U.Real * W.Imaginary + U.Imaginary * W.Real);
 
                 }
+                
             }
-            //void liczifft()
-            //{
-            //    for (int i = 0; i < n; i++)
-            //    {
-            //        X[i] = Complex.Conjugate(X[i]);
-            //    }
-            //    liczfft();
-            //    for (int i = 0; i < n; i++)
-            //    {
-            //        X[i] = new Complex(X[i].Real / n, X[i].Imaginary / n);
-            //    }
-            //}
+            return X;
 
         }
     }

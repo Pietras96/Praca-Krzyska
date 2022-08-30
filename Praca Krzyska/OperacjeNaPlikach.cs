@@ -10,16 +10,35 @@ namespace Praca_Krzyska
 {
     class OperacjeNaPlikach
     {
-        double StringToDouble(string str)
+      
+        public double StringToDouble(string str)
         {
             double number = Convert.ToDouble(str);
             return number;
         }
-        string DoubleToString(double number)
+        public string DoubleToString(double number)
         {
             string str = Convert.ToString(number);
             return str;
         }
-        
+         public void SaveFile(string path, string fileName, List<Complex> list)
+        {
+            using (TextWriter tw = new StreamWriter(path + fileName))
+            {
+                foreach (Complex s in list)
+                    tw.WriteLine($"{s.Real}; {s.Imaginary}i");
+            }
+
+        }
+        public void SaveFile(string path, string fileName, List<double> list)
+        {
+            using (TextWriter tw = new StreamWriter(path + fileName))
+            {
+                foreach (Complex s in list)
+                    tw.WriteLine(s.Real);
+            }
+
+        }
+
     }
 }

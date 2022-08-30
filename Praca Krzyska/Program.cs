@@ -9,9 +9,14 @@ namespace Praca_Krzyska
     {
         static void Main(string[] args)
         {
-            string file = @"C:\Users\Piotrek\Desktop\proba1024.txt";
+            string file = @"C:\Users\Piotrek\Desktop\ostatniaproba.txt";
+            string path = @"C:\Users\Piotrek\Desktop\";
 
+            var op = new OperacjeNaPlikach();
             var fft = new fft(file);
+            op.SaveFile(path, "fftResult.txt", fft.X);
+            var aps = new Aps(file);
+            op.SaveFile(path, "PSDResult.txt", aps.PSDList);
 
 
             Console.WriteLine("elo");
