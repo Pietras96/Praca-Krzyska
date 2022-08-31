@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Praca_Krzyska
 {
-    class Aps: fft
+    class Aps: FFT
     {
         public Aps(string path): base(path)
         {
@@ -26,7 +26,7 @@ namespace Praca_Krzyska
             }
             return apList;
         }
-        // dodac mianownik
+        // zmienic mianownik
         List<double> PSD()
         {
             for (int i = 0; i < n; i++)
