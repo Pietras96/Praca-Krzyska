@@ -9,26 +9,17 @@ namespace AnalizaFouriera
 {
     class FFT: Data
     {
+        Complex W, U, temp = new Complex(); 
+        int i, n2, j=0, k=0, id=0, L=0, ne=0, ne2=0;
+
         public FFT(string path) : base (path)
         {
             CalculateFFT();
         }
-        Complex temp; 
-        Complex W;
-        Complex U;
-        int i;
-        int j = 0;
-        int k = 0;
-        int id = 0;
-        int L = 0;
-        int ne = 0;
-        int ne2 = 0;
-        int n2;
 
         public List<Complex> CalculateFFT()
         {
-            temp = new Complex();
-            n2 = n / 2;
+            n2 = n / 2;   
             
             for (i = 1; i < n - 1; i++)
             {
@@ -47,6 +38,7 @@ namespace AnalizaFouriera
                 }
 
             }
+
             for (L = 1; L <= M; L++)
             {
                 ne = (int)Math.Pow(2, L);
@@ -64,12 +56,9 @@ namespace AnalizaFouriera
                     }
                     temp = new Complex(U.Real * W.Real - U.Imaginary * W.Imaginary, X[id].Imaginary * U.Real + X[id].Real * U.Imaginary);
                     U = new Complex(temp.Real, U.Real * W.Imaginary + U.Imaginary * W.Real);
-
-                }
-                
+                }              
             }
             return X;
-
         }
     }
 }

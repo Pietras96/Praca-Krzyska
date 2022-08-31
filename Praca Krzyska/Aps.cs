@@ -1,37 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnalizaFouriera
 {
-    class Aps: FFT
+    class APS: FFT
     {
-        public Aps(string path): base(path)
+        public List<double> AbsList = new List<double>();
+        public List<double> PSDList = new List<double>();
+
+        public APS(string path): base(path)
         {
-            abspow();
+            AbsPow();
             PSD();
         }
-        public List<double> apList;
-        public List<double> PSDList;
-        List<double> abspow()
+
+        List<double> AbsPow()
         {
-            apList = new List<double>();
-            PSDList = new List<double>();
             for (int i = 0; i < n; i++)
             {
-                apList.Add(Math.Pow(X[i].Real,2) + Math.Pow(X[i].Imaginary,2));
+                AbsList.Add(Math.Pow(X[i].Real,2) + Math.Pow(X[i].Imaginary,2));
             }
-            return apList;
+            return AbsList;
         }
+
         // zmienic mianownik
         List<double> PSD()
         {
             for (int i = 0; i < n; i++)
             {
-                PSDList.Add(Math.Sqrt(Convert.ToDouble(apList[i]))/(n*300));
+                PSDList.Add(Math.Sqrt(Convert.ToDouble(AbsList[i]))/(n*300));
             }
             return PSDList;
         }

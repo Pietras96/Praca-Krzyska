@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Numerics;
-
-namespace AnalizaFouriera
+﻿namespace AnalizaFouriera
 {
     public class Program
     {
@@ -13,9 +8,9 @@ namespace AnalizaFouriera
             string file = @"E:\Studia\Krzysiek\dane1\Szum\szum.txt";
 
             var fft = new FFT(file);
-            fft.SaveFile("fftResult.txt", fft.X);
-            var aps = new Aps(file);
-            aps.SaveFile("PSDResult.txt", aps.PSDList);                                         
+            fft.SaveToFile("fftResult.txt", fft.X);
+            var aps = new APS(file);
+            aps.SaveToFile("PSDResult.txt", aps.PSDList);                                         
         }
     }
 }
