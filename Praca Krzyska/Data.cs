@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Praca_Krzyska
+namespace AnalizaFouriera
 {
     class Data
     {
@@ -19,8 +19,6 @@ namespace Praca_Krzyska
         {
             GetPath(filePath);
             GetData(filePath);          
-            //rms2 = rms();
-            //rms2 *= rms2;
         }
         public void GetData(string path)
         {
@@ -28,11 +26,9 @@ namespace Praca_Krzyska
             n = data.Length;
             X = new List<Complex>();
             M = (int)Math.Log2(n);
-            //double rms2;
             for (int l = 0; l < n; l++)
             {
                 X.Add(new Complex(StringToDouble(data[l]), 0));
-
             }
         }
         public double StringToDouble(string str)
@@ -72,14 +68,5 @@ namespace Praca_Krzyska
             }
             return this.path;
         }
-        //double rms()
-        //{
-        //    double sum = X[0].Real * X[0].Real;
-        //    for (int i = 0; i < n; i++)
-        //    {
-        //        sum += X[i].Real * X[i].Real;
-        //    }
-        //    return Math.Sqrt((1.0 / n) * sum);
-        //}
     }
 }

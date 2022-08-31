@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Praca_Krzyska
+namespace AnalizaFouriera
 {
     class FFT: Data
     {
