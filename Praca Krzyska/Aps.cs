@@ -23,7 +23,6 @@ namespace AnalizaFouriera
             return AbsList;
         }
 
-        // zmienic mianownik
         List<double> PSD()
         {
             for (int i = 0; i < n; i++)
